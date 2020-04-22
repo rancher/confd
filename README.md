@@ -9,6 +9,28 @@
   [vault](https://vaultproject.io), [zookeeper](https://zookeeper.apache.org), [aws ssm parameter store](https://aws.amazon.com/ec2/systems-manager/) or env vars and processing [template resources](docs/template-resources.md).
 * reloading applications to pick up new config file changes
 
+## Rancher Release Instructions
+
+An x86 host like Ubuntu 18.04 is recommended, the Docker should be installed on it.
+
+```
+$ apt install make
+
+$ git checkout -t origin/release/v0.16
+$ make release
+
+# You should now have confd in your bin directory:
+$ ls bin/
+```
+
+To upload the artifacts to the Github release, you can use [hub](https://github.com/github/hub).
+
+After making a release on the Github UI, you can try this script:
+
+```
+$ ./upload.sh <release-tag>
+```
+
 ## Community
 
 * IRC: `#confd` on Freenode
