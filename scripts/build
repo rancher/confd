@@ -15,7 +15,7 @@ for platform in darwin linux windows; do \
   GOOS=$platform GOARCH=amd64 CGO_ENABLED=0 go build -ldflags="-s -w -X main.GitSHA=${GIT_SHA}" -o bin/confd-${VERSION}-$platform-amd64$extension; \
   if [ $platform == linux ]; then \
   GOOS=$platform GOARCH=arm CGO_ENABLED=0 go build -ldflags="-s -w -X main.GitSHA=${GIT_SHA}" -o bin/confd-${VERSION}-linux-arm; \
-  GOOS=$platform GOARCH=arm CGO_ENABLED=0 go build -ldflags="-s -w -X main.GitSHA=${GIT_SHA}" -o bin/confd-${VERSION}-linux-arm64; \
+  GOOS=$platform GOARCH=arm64 CGO_ENABLED=0 go build -ldflags="-s -w -X main.GitSHA=${GIT_SHA}" -o bin/confd-${VERSION}-linux-arm64; \
   fi; \
 done
 
